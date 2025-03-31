@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+.main-container {
+  display: flex;
+  gap: 20px;
+}
+
+#leftPanel,
+#rightPanel {
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#leftPanel {
+  flex: 1;
+  max-width: 350px;
+}
+
+#rightPanel {
+  flex: 2;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 8px 12px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+#calendar {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.calendar-table th,
+.calendar-table td {
+  border: 1px solid #ddd;
+  width: 14.28%;
+  height: 80px;
+  vertical-align: top;
+  position: relative;
+  padding: 4px;
+}
+
+.calendar-table th {
+  background: #f0f0f0;
+}
+
+.date-number {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.color-block {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin: 1px;
+  border-radius: 2px;
+}
+
+.event-item {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #eaeaea;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.event-item span {
+  margin-left: 5px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+}
+

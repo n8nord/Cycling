@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hobby Organizer with Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-container">
+    <!-- Left Panel: Topics & Calendar Events -->
+    <div id="leftPanel">
+      <h1>Hobby Organizer</h1>
+      <!-- Topic Management -->
+      <div class="section">
+        <h2>Add Topic</h2>
+        <input type="text" id="newTopic" placeholder="Enter topic name" />
+        <button id="addTopicBtn">Add Topic</button>
+      </div>
+      <div class="section">
+        <h2>Select Topic</h2>
+        <select id="topicSelect">
+          <option value="" disabled selected>Select a topic</option>
+        </select>
+      </div>
+      <div class="section">
+        <h2>Topic Details</h2>
+        <textarea id="focusedText" rows="4" placeholder="Focused tasks"></textarea>
+        <textarea id="casualText" rows="4" placeholder="Casual tasks"></textarea>
+        <button id="saveBtn">Save Topic</button>
+        <button id="removeTopicBtn">Remove Topic</button>
+      </div>
+      <!-- Calendar Event Creation -->
+      <div class="section">
+        <h2>Add Calendar Event</h2>
+        <input type="date" id="startDate" />
+        <input type="date" id="endDate" />
+        <input type="color" id="eventColor" value="#ff0000" />
+        <button id="addCalendarBtn">Add to Calendar</button>
+      </div>
+      <!-- List of Calendar Events for the Selected Topic -->
+      <div class="section">
+        <h2>Topic Calendar Events</h2>
+        <div id="eventList"></div>
+      </div>
+    </div>
+    <!-- Right Panel: Calendar Display -->
+    <div id="rightPanel">
+      <h1>Calendar</h1>
+      <div class="section">
+        <label for="calendarViewSelect">View: </label>
+        <select id="calendarViewSelect">
+          <option value="week">Week</option>
+          <option value="month" selected>Month</option>
+          <option value="3-month">3-Month</option>
+        </select>
+      </div>
+      <div id="calendar"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
