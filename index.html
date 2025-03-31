@@ -3,61 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hobby Organizer with Calendar</title>
+  <title>Hobby Organizer – Multi-Screen App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="main-container">
-    <!-- Left Panel: Topics & Calendar Events -->
+  <!-- Navigation Bar -->
+  <nav id="navBar">
+    <button id="hybridBtn">Hybrid</button>
+    <button id="calendarBtn">Calendar</button>
+    <button id="organizerBtn">Organizer</button>
+  </nav>
+
+  <!-- Hybrid Screen: Left = Organizer; Right = Calendar -->
+  <div id="hybridScreen" class="screen">
+    <!-- Left Panel: Organizer -->
     <div id="leftPanel">
-      <h1>Hobby Organizer</h1>
-      <!-- Topic Management -->
+      <h2>Organizer</h2>
+      <!-- Add Topic -->
       <div class="section">
-        <h2>Add Topic</h2>
         <input type="text" id="newTopic" placeholder="Enter topic name" />
         <button id="addTopicBtn">Add Topic</button>
       </div>
+      <!-- Select Topic -->
       <div class="section">
-        <h2>Select Topic</h2>
         <select id="topicSelect">
           <option value="" disabled selected>Select a topic</option>
         </select>
       </div>
+      <!-- Topic Details -->
       <div class="section">
-        <h2>Topic Details</h2>
-        <textarea id="focusedText" rows="4" placeholder="Focused tasks"></textarea>
-        <textarea id="casualText" rows="4" placeholder="Casual tasks"></textarea>
-        <button id="saveBtn">Save Topic</button>
+        <textarea id="focusedText" rows="3" placeholder="Focused tasks"></textarea>
+        <textarea id="casualText" rows="3" placeholder="Casual tasks"></textarea>
+        <button id="saveTopicBtn">Save Topic</button>
         <button id="removeTopicBtn">Remove Topic</button>
       </div>
       <!-- Calendar Event Creation -->
       <div class="section">
-        <h2>Add Calendar Event</h2>
+        <h3>Add Calendar Event</h3>
         <input type="date" id="startDate" />
         <input type="date" id="endDate" />
         <input type="color" id="eventColor" value="#ff0000" />
         <button id="addCalendarBtn">Add to Calendar</button>
       </div>
-      <!-- List of Calendar Events for the Selected Topic -->
+      <!-- List Calendar Events for Selected Topic -->
       <div class="section">
-        <h2>Topic Calendar Events</h2>
+        <h3>Topic Calendar Events</h3>
         <div id="eventList"></div>
       </div>
     </div>
-    <!-- Right Panel: Calendar Display -->
+    <!-- Right Panel: Calendar (Hybrid view) -->
     <div id="rightPanel">
-      <h1>Calendar</h1>
-      <div class="section">
-        <label for="calendarViewSelect">View: </label>
-        <select id="calendarViewSelect">
-          <option value="week">Week</option>
-          <option value="month" selected>Month</option>
-          <option value="3-month">3-Month</option>
-        </select>
-      </div>
-      <div id="calendar"></div>
+      <h2>Calendar</h2>
+      <div id="hybridCalendarContainer"></div>
     </div>
   </div>
+
+  <!-- Calendar Screen: Full-Screen Calendar with Month Navigation -->
+  <div id="calendarScreen" class="screen" style="display:none;">
+    <div id="monthNav">
+      <button id="prevMonthBtn">&lt; Prev Month</button>
+      <span id="currentMonthLabel"></span>
+      <button id="nextMonthBtn">Next Month &gt;</button>
+    </div>
+    <div id="fullCalendar"></div>
+  </div>
+
+  <!-- Organizer Screen: Only Organizer UI -->
+  <div id="organizerScreen" class="screen" style="display:none;">
+    <div id="leftPanelOrganizer">
+      <h2>Organizer</h2>
+      <!-- Add Topic -->
+      <div class="section">
+        <input type="text" id="newTopicOrg" placeholder="Enter topic name" />
+        <button id="addTopicBtnOrg">Add Topic</button>
+      </div>
+      <!-- Select Topic -->
+      <div class="section">
+        <select id="topicSelectOrg">
+          <option value="" disabled selected>Select a topic</option>
+        </select>
+      </div>
+      <!-- Topic Details -->
+      <div class="section">
+        <textarea id="focusedTextOrg" rows="3" placeholder="Focused tasks"></textarea>
+        <textarea id="casualTextOrg" rows="3" placeholder="Casual tasks"></textarea>
+        <button id="saveTopicBtnOrg">Save Topic</button>
+        <button id="removeTopicBtnOrg">Remove Topic</button>
+      </div>
+      <!-- Calendar Event Creation -->
+      <div class="section">
+        <h3>Add Calendar Event</h3>
+        <input type="date" id="startDateOrg" />
+        <input type="date" id="endDateOrg" />
+        <input type="color" id="eventColorOrg" value="#ff0000" />
+        <button id="addCalendarBtnOrg">Add to Calendar</button>
+      </div>
+      <!-- List Calendar Events for Selected Topic -->
+      <div class="section">
+        <h3>Topic Calendar Events</h3>
+        <div id="eventListOrg"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day View Modal for Day-Specific Goals -->
+  <div id="dayViewModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="dayViewClose">&times;</span>
+      <h2>Day View: <span id="dayViewDate"></span></h2>
+      <div id="existingDayGoals"></div>
+      <h3>Add Goal</h3>
+      <input type="text" id="dayGoalText" placeholder="Goal description" />
+      <select id="dayGoalTopic">
+        <option value="" disabled selected>Select a topic</option>
+      </select>
+      <button id="addDayGoalBtn">Add Goal</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
